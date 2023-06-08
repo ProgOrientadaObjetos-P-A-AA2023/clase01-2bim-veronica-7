@@ -16,6 +16,7 @@ public class Empresa {
     private Vehiculo [] vehiculos; // tipo, matricula, valor
     private double costoBienesInmuebles;
     private double costoVehiculos;
+    private double costoTotalPredio;
     private double costoTotalBienes;
     
     public void establecerNombre(String m){
@@ -39,7 +40,17 @@ public class Empresa {
         costoBienesInmuebles = suma;
     }
     
-     public void establecerCostosVehiculos(){
+    public void establecerCostosTotalPredio(){
+        double suma = 0;
+        for (int i = 0; i < edificios.length; i++) {
+        // for (int i = 0; i < obtenerEdificios().length; i++) {
+            suma = suma + edificios[i].obtenerCostoPredio();
+        }
+        
+        costoTotalPredio = suma;
+    }
+    
+    public void establecerCostosVehiculos(){
         double suma = 0;
         for (int i = 0; i < vehiculos.length; i++) {
         // for (int i = 0; i < obtenerEdificios().length; i++) {
@@ -122,11 +133,13 @@ public class Empresa {
         
         reporte = String.format("%sTotal de bienes inmuebles: %.2f\n"
                 + "Total de costo vehiculos: %.2f\n"
-                + "Costo total bienes: %.2f\n", 
+                + "Costo total bienes: %.2f\n"
+                + "Costo total del predio: %.2f\n", 
                 reporte,
                 costoBienesInmuebles,
                 costoVehiculos,
-                costoTotalBienes);
+                costoTotalBienes, 
+                costoTotalPredio);
         
         return reporte;
     }
