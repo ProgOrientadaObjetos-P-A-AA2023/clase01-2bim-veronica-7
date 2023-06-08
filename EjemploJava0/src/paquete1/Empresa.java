@@ -121,22 +121,23 @@ public class Empresa {
                     edificios[i].obtenerNombre().toUpperCase(), 
                     edificios[i].obtenerCosto());
         }
+        reporte = String.format("%sTotal de bienes inmuebles: %.2f\n",
+                reporte,
+                costoBienesInmuebles);
+        
         reporte = String.format("%s\nLista de Vehiculos:\n", reporte);
         for (int i = 0; i < vehiculos.length; i++) {
-            reporte = String.format("%s%d)%S\n\t%s\n\t(%.2f)\n", 
+            reporte = String.format("%s%d. %s, %S (%.2f)\n", 
                     reporte, 
                     i+1,
                     vehiculos[i].obtenerTipo(), 
                     vehiculos[i].obtenerMatricula(),
                     vehiculos[i].obtenerValor());
-        }
-        
-        reporte = String.format("%sTotal de bienes inmuebles: %.2f\n"
-                + "Total de costo vehiculos: %.2f\n"
-                + "Costo total bienes: %.2f\n"
+        }        
+        reporte = String.format("%sTotal de costo vehiculos: %.2f\n\n"
+                + "Total de costo bienes: %.2f\n"
                 + "Costo total del predio: %.2f\n", 
                 reporte,
-                costoBienesInmuebles,
                 costoVehiculos,
                 costoTotalBienes, 
                 costoTotalPredio);
