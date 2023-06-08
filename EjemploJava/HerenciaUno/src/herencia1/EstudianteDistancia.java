@@ -7,9 +7,9 @@ public class EstudianteDistancia extends Estudiante{
         costoAsginatura: Real 
         matriculaDistancia: Real*/ 
     //  Métodos establecer y calcular para los datos o atributos de la clase
-    int numeroAsignaturas;
-    double costoAsginatura;
-    double matriculaDistancia;
+    private int numeroAsignaturas;
+    private double costoAsginatura;
+    private double matriculaDistancia;
     
     // 2.  Método establecerNumeroAsginaturas(numero: Real)
     public void establecerNumeroAsginaturas(int numero){
@@ -44,8 +44,16 @@ public class EstudianteDistancia extends Estudiante{
     
     @Override
     public String toString(){
-        String reporte = String.format("Nombres: %s\n",
-                obtenerNombresEstudiante());
+        String reporte = String.format("Nombres: %s\n Apellidos: %s\n"
+                + "Edad del estudiante: %d\n ID: %s\nNúmero de asignaturas: %d\n"
+                + "Costo de la asignatura: %.1f\nCosto total de la matricula a distancia: %.1f\n",
+                obtenerNombresEstudiante(), 
+                obtenerApellidoEstudiante(), 
+                obtenerEdadEstudiante(), 
+                obtenerIdentificacionEstudiante(), 
+                obtenerNumeroAsignaturas(),
+                obtenerCostoAsignatura(),
+                obtenerMatriculaDistancia());
         
         return reporte;
     }
